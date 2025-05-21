@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "../frontend/navbar";
-
+import gowrishankar from "../../assets/gowrishankar.jpg"
 const Home = () => {
     // Animation variants for fade-in effect
     const fadeIn = {
@@ -17,6 +17,51 @@ const Home = () => {
             transition: { duration: 2, ease: "easeInOut" },
         },
     };
+
+    // Staggered animation for project items
+    const projectContainer = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+            },
+        },
+    };
+
+    const projectItem = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    };
+
+    // Project data with placeholder logo URLs
+    const projects = [
+        {
+            name: "ISCSITR Journal",
+            url: "https://iscsitr.org",
+            logo: "https://via.placeholder.com/40?text=ISCSITR",
+        },
+        {
+            name: "PRJ Publication",
+            url: "https://prjpublication.com",
+            logo: "https://via.placeholder.com/40?text=PRJ",
+        },
+        {
+            name: "IJSRCIT Journal",
+            url: "https://ijsrcsit.com",
+            logo: "https://via.placeholder.com/40?text=IJSRCIT",
+        },
+        {
+            name: "Mayura Silks E-Commerce",
+            url: "https://demomayura.uthsoftware.com",
+            logo: "https://via.placeholder.com/40?text=Mayura",
+        },
+        {
+            name: "ERP System",
+            url: "#",
+            logo: "https://via.placeholder.com/40?text=ERP",
+        },
+    ];
 
     return (
         <div className="min-h-screen bg-gray-50 text-gray-800">
@@ -34,15 +79,15 @@ const Home = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <div className="flex items-center justify-center mb-4">
                         <img
-                            src="https://via.placeholder.com/150?text=Profile+Photo"
+                            src={gowrishankar}
                             alt="Gowrishankar Menapati"
-                            className="w-24 h-24 rounded-full mr-4 object-cover"
+                            className="h-80 w-80 rounded-full mr-4 object-cover"
                         />
                         <div>
-                            <h1 className="text-5xl md:text-7xl font-extrabold">
+                            <h1 className="text-5xl md:text-6xl font-bold">
                                 Gowrishankar Menapati
                             </h1>
-                            <p className="text-lg md:text-xl mt-2">
+                            <p className="text-lg md:text-xl mt-2 text-gray-200">
                                 2+ Years of Frontend Development Experience
                             </p>
                         </div>
@@ -127,80 +172,45 @@ const Home = () => {
             {/* Projects Section */}
             <motion.section
                 id="projects"
-                className="py-16"
+                className="py-16 bg-gradient-to-b from-gray-50 to-gray-200"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={fadeIn}
+                variants={projectContainer}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl font-bold mb-8 text-center">My Projects</h2>
-                    <ul className="list-disc list-inside max-w-3xl mx-auto text-lg">
-                        {[
-                            { name: "ISCSITR Journal", url: "https://iscsitr.org" },
-                            { name: "PRJ Publication", url: "https://prjpublication.com" },
-                            { name: "IJSRCIT Journal", url: "https://ijsrcsit.com" },
-                            { name: "Mayura Silks E-Commerce", url: "https://demomayura.uthsoftware.com" },
-                            { name: "ERP System", url: "#" },
-                            { name: "APIETA", url: "#" },
-                        ].map((project) => (
-                            <motion.li
+                    <h2 className="text-4xl font-bold mb-12 text-center">My Projects</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                        {projects.map((project) => (
+                            <motion.div
                                 key={project.name}
-                                className="mb-2"
-                                whileHover={{ x: 10 }}
+                                className="flex items-center bg-white rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow duration-300"
+                                variants={projectItem}
+                                whileHover={{ y: -5 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <a
-                                    href={project.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-indigo-600 hover:underline"
-                                >
-                                    {project.name}
-                                </a>
-                            </motion.li>
+                                <motion.img
+                                    src={project.logo}
+                                    alt={`${project.name} Logo`}
+                                    className="w-12 h-12 mr-4 object-contain"
+                                    whileHover={{ scale: 1.2 }}
+                                    transition={{ duration: 0.3 }}
+                                />
+                                <div>
+                                    <a
+                                        href={project.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-lg font-semibold text-indigo-600 hover:underline"
+                                    >
+                                        {project.name}
+                                    </a>
+                                </div>
+                            </motion.div>
                         ))}
-                    </ul>
+                    </div>
                 </div>
             </motion.section>
-
-            {/* Archives Section */}
-            {/* <motion.section
-                id="archives"
-                className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-16"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeIn}
-            >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-4xl font-bold mb-6">Journal Archives</h2>
-                    <p className="text-lg max-w-3xl mx-auto mb-8">
-                        At IAEME Publications, I built search-enabled archive interfaces for journals like ISCSITR, enabling researchers to find articles, authors, and universities effortlessly. Try a mock search below or explore IAEME’s archives.
-                    </p>
-                    <motion.div
-                        className="max-w-xl mx-auto mb-8"
-                        initial={{ scale: 0.9 }}
-                        whileInView={{ scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <input
-                            type="text"
-                            placeholder="Search articles, authors, or journals..."
-                            className="w-full px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-300"
-                            disabled
-                        />
-                    </motion.div>
-                    <a
-                        href="https://iaeme.com/JournalArchives.asp"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full hover:bg-indigo-100 transition-colors duration-300"
-                    >
-                        Explore IAEME Archives
-                    </a>
-                </div>
-            </motion.section> */}
 
             {/* Contact Section */}
             <motion.section
@@ -249,4 +259,5 @@ const Home = () => {
         </div>
     );
 };
+
 export default Home;

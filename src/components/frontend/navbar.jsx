@@ -9,6 +9,11 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
 
+    // Function to close mobile menu
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+
     return (
         <nav className="bg-gray-800 text-white w-full shadow-md sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,7 +23,7 @@ const Navbar = () => {
                         <a href="/" className="text-2xl font-bold tracking-tight">
                             M Gowrishankar
                         </a>
-                        <p class='text-sm'>Frontend Developer</p>
+                        <p className="text-sm">Frontend Developer</p>
                     </div>
 
                     {/* Desktop Menu */}
@@ -41,12 +46,6 @@ const Navbar = () => {
                         >
                             Projects
                         </a>
-                        {/* <a
-                            href="#archives"
-                            className="hover:text-blue-400 transition-colors duration-200"
-                        >
-                            Archives
-                        </a> */}
                         <a
                             href="#contact"
                             className="hover:text-blue-400 transition-colors duration-200"
@@ -87,30 +86,28 @@ const Navbar = () => {
                         <a
                             href="#home"
                             className="block px-3 py-2 text-white hover:bg-gray-600 rounded-md"
+                            onClick={closeMenu}
                         >
                             Home
                         </a>
                         <a
                             href="#about"
                             className="block px-3 py-2 text-white hover:bg-gray-600 rounded-md"
+                            onClick={closeMenu}
                         >
                             About
                         </a>
                         <a
                             href="#projects"
                             className="block px-3 py-2 text-white hover:bg-gray-600 rounded-md"
+                            onClick={closeMenu}
                         >
                             Projects
                         </a>
                         <a
-                            href="#archives"
-                            className="block px-3 py-2 text-white hover:bg-gray-600 rounded-md"
-                        >
-                            Archives
-                        </a>
-                        <a
                             href="#contact"
                             className="block px-3 py-2 text-white hover:bg-gray-600 rounded-md"
+                            onClick={closeMenu}
                         >
                             Contact
                         </a>
