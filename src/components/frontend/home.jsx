@@ -149,7 +149,7 @@ const Home = () => {
                         </div>
                     </div>
                     <motion.p
-                        className="text-xl md:text-3xl mb-8 overflow-hidden whitespace-nowrap"
+                        className="text-lg md:text-3xl mb-8 overflow-hidden whitespace-nowrap"
                         variants={typewriter}
                     >
                         Frontend Developer | Crafting Seamless Web Experiences
