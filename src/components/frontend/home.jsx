@@ -81,10 +81,10 @@ const Home = () => {
                         <img
                             src={gowrishankar}
                             alt="Gowrishankar Menapati"
-                            className="h-80 w-80 rounded-full mr-4 object-cover"
+                            className="md:h-80 md:w-80 h-24 w-24 rounded-full mr-4 object-cover"
                         />
                         <div>
-                            <h1 className="text-5xl md:text-6xl font-bold">
+                            <h1 className="text-4xl md:text-6xl font-bold">
                                 Gowrishankar Menapati
                             </h1>
                             <p className="text-lg md:text-xl mt-2 text-gray-200">

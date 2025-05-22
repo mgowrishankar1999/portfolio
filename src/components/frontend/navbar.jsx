@@ -20,7 +20,7 @@ const Navbar = () => {
                 <div className="flex justify-between items-center h-16">
                     {/* Logo/Name */}
                     <div className="flex-shrink-0">
-                        <a href="/" className="text-2xl font-bold tracking-tight">
+                        <a href="/" className="text-2xl font-bold font-mono tracking-tight">
                             M Gowrishankar
                         </a>
                         <p className="text-sm">Frontend Developer</p>
