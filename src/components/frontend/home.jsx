@@ -1,11 +1,22 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "../frontend/navbar";
-import gowrishankar from "../../assets/gowrishankar.jpg"
+import gowrishankar from "../../assets/gowrishankar.jpg";
+import reactjs from "../../assets/reactjs.png"
+import tailwind from "../../assets/tailwind.png"
+import nodejs from "../../assets/nodejs.png"
+import firebase from "../../assets/firebase.png"
+import javascript from "../../assets/javascript.png"
+import html from "../../assets/html.png"
+import css from "../../assets/css.jpg"
+import bootstrap from "../../assets/bootstrap.png"
+import materialui from "../../assets/materialui.png"
+import git from "../../assets/git.png"
+
 const Home = () => {
     // Animation variants for fade-in effect
     const fadeIn = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 10 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
     };
 
@@ -63,6 +74,51 @@ const Home = () => {
         },
     ];
 
+    // Tech Stack data with logo URLs
+    const techStack = [
+        {
+            name: "React.js",
+            logo: reactjs,
+        },
+        {
+            name: "Tailwind CSS",
+            logo: tailwind,
+        },
+        {
+            name: "Node.js",
+            logo: nodejs,
+        },
+        {
+            name: "Firebase",
+            logo: firebase,
+        },
+        {
+            name: "JavaScript",
+            logo: javascript,
+        },
+        {
+            name: "HTML",
+            logo: html,
+        },
+        {
+            name: "CSS",
+            logo: css,
+        },
+        {
+            name: "Bootstrap",
+            logo: bootstrap,
+        },
+
+        {
+            name: "Material UI",
+            logo: materialui,
+        },
+        {
+            name: "Git",
+            logo: git,
+        },
+    ];
+
     return (
         <div className="min-h-screen bg-gray-50 text-gray-800">
             {/* Navbar */}
@@ -85,7 +141,7 @@ const Home = () => {
                         />
                         <div>
                             <h1 className="text-4xl md:text-6xl font-bold">
-                                Gowrishankar Menapati
+                                Gowrishankar
                             </h1>
                             <p className="text-lg md:text-xl mt-2 text-gray-200">
                                 2+ Years of Frontend Development Experience
@@ -142,28 +198,17 @@ const Home = () => {
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-4xl font-bold mb-8 text-center">Tech Stack</h2>
-                    <div className="flex flex-wrap justify-center gap-4">
-                        {[
-                            "React.js",
-                            "Tailwind CSS",
-                            "Node.js",
-                            "Firebase",
-                            "JavaScript",
-                            "HTML",
-                            "CSS",
-                            "Bootstrap",
-                            "Vite",
-                            "Material UI",
-                            "REST APIs",
-                        ].map((tech) => (
-                            <motion.span
-                                key={tech}
-                                className="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-semibold"
-                                whileHover={{ scale: 1.1 }}
+                    <div className="flex flex-wrap justify-center gap-6">
+                        {techStack.map((tech) => (
+                            <motion.img
+                                key={tech.name}
+                                src={tech.logo}
+                                alt={`${tech.name} Logo`}
+                                className="w-14 h-14 rounded-full object-full "
+                                whileHover={{ scale: 1.2 }}
                                 transition={{ duration: 0.3 }}
-                            >
-                                {tech}
-                            </motion.span>
+                                title={tech.name} // Tooltip for accessibility
+                            />
                         ))}
                     </div>
                 </div>
